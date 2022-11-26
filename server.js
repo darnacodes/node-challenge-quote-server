@@ -27,7 +27,7 @@ app.get("/quotes", function (request, response) {
 //using the function PickFromArray
 
 app.get("/quotes/random", function (request, response) {
-  response.send(`${JSON.stringify(pickFromArray(quotes))}}`);
+  response.send(pickFromArray(quotes));
 });
 
 
@@ -36,7 +36,16 @@ app.get("/quotes/random", function (request, response) {
 //You can use this function to pick one element at random from a given array
 //example: pickFromArray([1,2,3,4]), or
 //example: pickFromArray(myContactsArray)
-//
+
+//expounding the function pickFromArray
+/*
+function pickFromArray(quotes){
+  const randomNumber=Math.random();
+  const totalNumberofQuotes=quotes.length;
+  const randomIndex=Math.floor(randomNumber*totalNumberofQuotes);
+  return quotes(randomIndex);
+}
+*/
 function pickFromArray(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
